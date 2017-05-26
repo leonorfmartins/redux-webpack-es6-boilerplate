@@ -4,7 +4,6 @@ import promiseMiddleware from 'redux-promise';
 import createLogger from 'redux-logger';
 
 import rootReducer from '../reducer';
-import DevTools from '../DevTools';
 
 /**
  * Entirely optional.
@@ -24,7 +23,6 @@ const getDebugSessionKey = function () {
 
 const enhancer = compose(
   applyMiddleware(...middlewares),
-  window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument(),
   // Optional. Lets you write ?debug_session=<key> in address bar to persist debug sessions
   persistState(getDebugSessionKey())
 );
